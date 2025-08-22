@@ -1,0 +1,150 @@
+:root {
+  --background: 226 24% 6%; /* #0c0c0f */
+  --foreground: 210 40% 98%;
+  --card: 225 15% 10%;
+  --card-foreground: 210 40% 98%;
+  --popover: 226 24% 6%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 195 100% 50%; /* Electric Blue/Cyan */
+  --primary-foreground: 226 24% 6%; /* Dark for on-primary text */
+  --secondary: 225 15% 15%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 225 15% 15%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 225 15% 15%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 300 100% 50%; /* Neon Pink/Magenta */
+  --destructive-foreground: 210 40% 98%;
+  --border: 225 15% 20%;
+  --input: 225 15% 15%;
+  --ring: 195 100% 50%;
+  --radius: 0.75rem;
+  --success: 98 100% 54%; /* Neon Green */
+  --warning: 60 100% 50%; /* Neon Yellow */
+  --critical: 16 100% 50%; /* Neon Orange */
+}
+
+body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#root {
+    height: 100%;
+}
+
+/* Add neon effects to key elements */
+.bg-card {
+    box-shadow: 0 0 15px hsl(var(--primary) / 0.1), 0 0 3px hsl(var(--primary) / 0.2);
+}
+
+.text-primary, .text-destructive, .text-success, .text-warning, .text-critical {
+    text-shadow: 0 0 8px currentColor;
+}
+
+h1, .font-bold.text-lg { /* Target header titles and list titles */
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+}
+
+.bg-primary {
+    box-shadow: 0 0 12px hsl(var(--primary));
+}
+
+.focus\:ring-primary:focus, 
+input:focus,
+select:focus,
+textarea:focus {
+    --tw-ring-color: hsl(var(--primary) / 0.5);
+    box-shadow: 0 0 0 3px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+    border-color: hsl(var(--ring)) !important;
+}
+
+
+/* Custom Switch Toggle */
+.switch-toggle {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 40px;
+  height: 24px;
+  background-color: hsl(var(--input));
+  border-radius: 9999px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border: 1px solid hsl(var(--border));
+}
+.switch-toggle::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background-color: hsl(var(--foreground));
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+.switch-toggle:checked {
+  background-color: hsl(var(--primary));
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 8px hsl(var(--primary));
+}
+.switch-toggle:checked::before {
+  transform: translateX(16px);
+}
+
+/* Custom Range Input */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: hsl(var(--input));
+  border-radius: 5px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: hsl(var(--primary));
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 0 8px hsl(var(--primary));
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: hsl(var(--primary));
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 0 8px hsl(var(--primary));
+}
+
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.5);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+html[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}

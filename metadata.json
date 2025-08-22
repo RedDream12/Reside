@@ -1,0 +1,5 @@
+{
+  "name": "RERANGE",
+  "description": "An all-in-one productivity application featuring AI-powered to-do lists, notes, a habit tracker, and a Pomodoro timer, built with React and Gemini.",
+  "requestFramePermissions": []
+}
